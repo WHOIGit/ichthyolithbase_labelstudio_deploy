@@ -3,6 +3,7 @@
 This is LabelStudio deployment configuration for Elizabeth Sibert's IchthyolithBase.
 See [ichthyolithbase_labelstudio_tools](https://github.com/WHOIGit/ichthyolithbase_labelstudio_tools) for supporting scripts.
 
+
 ## Installation
 ```
 git clone git@github.com:WHOIGit/ichthyolithbase_labelstudio_deploy.git /opt/labelstudio
