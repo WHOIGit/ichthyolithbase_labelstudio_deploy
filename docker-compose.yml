@@ -1,0 +1,33 @@
+services:
+
+  app:
+    build: .  # FROM heartexlabs/label-studio:latest
+    restart: unless-stopped
+    ports:
+      - 22200:${LABEL_STUDIO_PORT}
+    depends_on:
+      - db
+    environment:
+      - DJANGO_DB=postgresql
+      - POSTGRE_NAME=${POSTGRES_DB}
+      - POSTGRE_USER=${POSTGRES_USER}
+      - POSTGRE_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRE_HOST=${POSTGRES_HOST:-db}
+      - POSTGRE_PORT=${POSTGRES_PORT:-5432}
+      - JSON_LOG=1
+    # - LOG_LEVEL=DEBUG
+    env_file:
+      - .env
+    command: label-studio-uwsgi
+
+  db:
+    image: pgautoupgrade/pgautoupgrade:13-alpine
+    hostname: db
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ${POSTGRES_DATA_DIR:-./postgres-data}:/var/lib/postgresql/data
+#      - ./deploy/pgsql/certs:/var/lib/postgresql/certs:ro
+
+
