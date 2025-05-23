@@ -1,6 +1,7 @@
 # ichthyolithbase_labelstudio_deploy
 
-This is LabelStudio deployment configuration for Elizabeth Sibert's IchthyolithBase.
+This is LabelStudio server deployment configuration for Elizabeth Sibert's IchthyolithBase.
+It assumes the server already has apache2 and docker/compose installed.
 See [ichthyolithbase_labelstudio_tools](https://github.com/WHOIGit/ichthyolithbase_labelstudio_tools) for supporting scripts.
 
 
